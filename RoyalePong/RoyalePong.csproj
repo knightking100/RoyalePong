@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C642A68E-29B7-48BC-A6F7-D9B252EA707E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>RoyalePong</RootNamespace>
+    <AssemblyName>RoyalePong</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Cryptography\NaClCrypto.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2B.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BConfig.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BCore-FullyUnrolled.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BCore-Inline.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BCore-Simple.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BCore.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BHasher.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BNodeHasher.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2BTreeConfig.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Blake2IvBuilder.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\Hasher.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\NodeHasher.cs" />
+    <Compile Include="Common\Cryptography\NaCl\Blake2b\TreeHasher.cs" />
+    <Compile Include="Common\Cryptography\NaCl\CustomNaCl\CustomNaCl.cs" />
+    <Compile Include="Common\Cryptography\NaCl\CustomNaCl\KeyPair.cs" />
+    <Compile Include="Common\Cryptography\NaCl\CustomNaCl\PublicBox.cs" />
+    <Compile Include="Common\Cryptography\NaCl\CustomNaCl\SecretBox.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\curve25519.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\curve25519xsalsa20poly1305.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\hsalsa20.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\poly1305.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\salsa20.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\verify_16.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\xsalsa20.cs" />
+    <Compile Include="Common\Cryptography\NaCl\TweetNaCl\xsalsa20poly1305.cs" />
+    <Compile Include="Common\Messages\ClientHello.cs" />
+    <Compile Include="Common\Messages\ServerHello.cs" />
+    <Compile Include="Common\Packet.cs" />
+    <Compile Include="Common\PacketDestination.cs" />
+    <Compile Include="Common\PacketReader.cs" />
+    <Compile Include="Common\PacketType.cs" />
+    <Compile Include="Common\PacketWriter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\Events\NewConnectionEventArgs.cs" />
+    <Compile Include="Server\Events\PacketReceivedEventArgs.cs" />
+    <Compile Include="Server\Events\PacketSentEventArgs.cs" />
+    <Compile Include="Server\PacketHandler.cs" />
+    <Compile Include="Server\RoyaleClient.cs" />
+    <Compile Include="Server\RoyaleServer.cs" />
+    <Compile Include="Server\RoyaleServer.Events.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
